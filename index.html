@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great%7CSource+Sans+Pro" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <script
+  			  src="https://code.jquery.com/jquery-3.2.1.js"
+  			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  			  crossorigin="anonymous"></script>
+          <!--j'utilise le cdn pour jquery.js et ensuite je lui fais chercher le dossier jquery-ui  -->
+  <script type="text/javascript" src="./jquery-ui-1.12.1/jquery-ui.js"></script>
+    <title>Exercice Post-it</title>
+</head>
+<body>
+  <div class="couleur">
+    <p class="postit" id="pink"></p>
+    <p class="postit" id="grey"></p>
+    <input type="color">
+  </div>
+  <!--realiser une boucle en générant une balise avec des conditions  -->
+  <h2>Grille</h2>
+    <div id="grille">
+    </div>
+<script>
+  // $('#wrapper').html('essai');pour vérifier la connection à la page
+  for (var i=1;i<"257";i++) {
+  $("#grille").append("<div class='forme'></div>");
+    // ce que l'on vise en premier et ce que l'on veut qu'il injecte
+    // le append permet de mettre à la suite, alors que html aurait donné le dernier nombre
+    // modulo = il faut que cela soit un multiple de 16
+  if (i%16==0){
+      $("#grille").append("<br/>");
+    }
+  }
+  // création des 16 colonnes et des 16 lignes
+  // for (var j=1; j<17;j++)
+  // {
+  // création d'une ligne de 16 cases
+  //   for (var i=1; i<17;i++) {
+  //   $("#grille").append("<div class='forme'>"+i+"</div>");
+  //   }
+  // }
+  </script>
+  <script>
+  $(function(){
+  $(".postit").draggable({
+    // c'est un évenement ui il faut aller la chercher dans cette bibliothèque
+    drag:function(event,ui){
+      var color=$(this).css("background-color");
+// déclarer une variable couleur et lui dire que sur cet objet je veux récupérer son css (le background)
+// après lui dire où je vais déposer ce truc et là quand je vais dropper il faut appliquer une nouvelle valeur de fond
+  $(".forme").droppable({
+    drop:function(event,ui){
+      $(this).css("background-color", color);
+  }
+})
+    },
+    revert:"valid",
+    // retour quand je le lache
+    snap:".forme"
+    // là où il va aller
+  })
+});
+</script>
+<!-- toujours mettre les balises script dans le body -->
+</body>
+</html>

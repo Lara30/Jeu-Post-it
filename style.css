@@ -1,0 +1,17 @@
+.forme {
+  width:30px;
+  height:30px;
+  border:1px solid black;
+display: inline-block;
+}
+.postit {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+#pink {
+  background-color: pink;
+}
+#grey {
+  background-color: grey;
+}

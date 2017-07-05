@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great%7CSource+Sans+Pro" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <script
+  			  src="https://code.jquery.com/jquery-3.2.1.js"
+  			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  			  crossorigin="anonymous"></script>
+          <!--j'utilise le cdn pour jquery.js et ensuite je lui fais chercher le dossier jquery-ui  -->
+  <script type="text/javascript" src="./jquery-ui-1.12.1/jquery-ui.js"></script>
+    <title>Exercice Post-it</title>
+</head>
+
+<body>
+    <script>
+    $(".basic").spectrum({
+    color: "#E6E",
+    change: function(color) {
+    $("#basic-log").text("change called: " + color.toHexString());
+    }
+    });
+    </script>
+
+
+</body>
+</html>
